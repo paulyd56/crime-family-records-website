@@ -1,0 +1,1538 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href="data:," />
+    <title>Crime Family Records — Family Over Everything</title>
+    <meta name="description" content="Crime Family Records. Dark cinematic hip-hop and orchestral strings, built on one code: family over everything. Home of Mori Made and Lora Finch." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Special+Elite&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        color-scheme: light dark;
+        --bg: #f2e8d3;
+        --bg-deep: #e7d9ba;
+        --panel: #fbf5e6;
+        --panel-2: #efe3c8;
+        --ink: #211a12;
+        --ink-soft: #4a3f2e;
+        --muted: #7a6a4f;
+        --line: #c9b88f;
+        --line-strong: #a68f5c;
+        --red: #b02318;
+        --red-deep: #8c1a10;
+        --gold: #8a6d2f;
+        --gold-bright: #b8912f;
+        --shadow: rgba(43, 30, 10, 0.22);
+        --hero-ink: #f4ecda;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #0c0a07;
+          --bg-deep: #070605;
+          --panel: #171310;
+          --panel-2: #1e1915;
+          --ink: #ede3cb;
+          --ink-soft: #c9bb9e;
+          --muted: #9a8a6f;
+          --line: #33291d;
+          --line-strong: #57452a;
+          --red: #e0341f;
+          --red-deep: #b02318;
+          --gold: #c9a35c;
+          --gold-bright: #e3bc6a;
+          --shadow: rgba(0, 0, 0, 0.6);
+          --hero-ink: #f4ecda;
+        }
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        *, *::before, *::after { animation: none !important; transition: none !important; }
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: "Newsreader", Georgia, serif;
+        font-size: 19px;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+      img { display: block; max-width: 100%; }
+      a { color: var(--red); }
+      ::selection { background: var(--red); color: #fff; }
+
+      .wrap { width: min(1180px, 100% - 40px); margin-inline: auto; }
+
+      /* ---------- nav ---------- */
+      .nav {
+        position: sticky; top: 0; z-index: 50;
+        background: var(--bg);
+        border-bottom: 2px solid var(--ink);
+      }
+      .nav-inner {
+        display: flex; align-items: center; gap: 8px;
+        padding: 10px 0; flex-wrap: wrap;
+      }
+      .nav .mark {
+        display: inline-flex; align-items: center; gap: 9px;
+        font-family: "Cinzel", serif; font-weight: 900; letter-spacing: 0.14em;
+        font-size: 13px; text-transform: uppercase; color: var(--ink);
+        text-decoration: none; margin-right: auto;
+      }
+      .nav .mark svg { flex: none; }
+      .nav a.link {
+        font-family: "Special Elite", monospace;
+        font-size: 12.5px; letter-spacing: 0.08em; text-transform: uppercase;
+        color: var(--ink-soft); text-decoration: none;
+        padding: 6px 9px; border-bottom: 2px solid transparent;
+      }
+      .nav a.link:hover, .nav a.link:focus-visible { color: var(--red); border-bottom-color: var(--red); }
+      .nav a.cta {
+        font-family: "Special Elite", monospace; font-size: 12.5px;
+        letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none;
+        background: var(--red); color: #fff; padding: 7px 14px;
+      }
+      .nav a.cta:hover { background: var(--red-deep); }
+      @media (max-width: 700px) { .nav a.link { display: none; } .nav a.link.keep { display: inline-block; } }
+
+      /* ---------- hero ---------- */
+      .hero {
+        display: grid; grid-template-columns: 1fr 1.05fr;
+        border-bottom: 2px solid var(--ink);
+        background: var(--bg-deep);
+      }
+      .hero-photo { position: relative; overflow: hidden; background: #0a0908; }
+      .hero-photo img {
+        position: absolute; inset: 0; width: 100%; height: 100%;
+        object-fit: cover; object-position: top center;
+      }
+      .hero-photo img.fading { opacity: 0; }
+      .hero-photo img { transition: opacity 0.35s ease; }
+      .hero-photo .stamp {
+        position: absolute; left: 20px; bottom: 64px; z-index: 2;
+        font-family: "Special Elite", monospace; font-size: 12px;
+        letter-spacing: 0.14em; text-transform: uppercase;
+        color: var(--hero-ink); background: rgba(10, 8, 6, 0.78);
+        border: 1px solid rgba(244, 236, 218, 0.4);
+        padding: 7px 12px; transform: rotate(-2deg);
+        max-width: calc(100% - 40px);
+      }
+      .hero-swap {
+        position: absolute; left: 20px; bottom: 18px; z-index: 3;
+        display: flex; gap: 8px; flex-wrap: wrap;
+      }
+      .hero-swap button {
+        font-family: "Special Elite", monospace; font-size: 11.5px;
+        letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer;
+        background: rgba(10, 8, 6, 0.82); color: var(--hero-ink);
+        border: 1px solid rgba(244, 236, 218, 0.45); padding: 8px 12px;
+      }
+      .hero-swap button[aria-pressed="true"] {
+        background: var(--red); border-color: var(--red); color: #fff;
+      }
+      .hero-swap button:hover { border-color: var(--gold-bright); }
+      .hero-panel {
+        padding: clamp(36px, 5vw, 64px) clamp(28px, 4vw, 56px);
+        display: flex; flex-direction: column; justify-content: center;
+      }
+      .hero-panel .burst { margin-bottom: 22px; }
+      .hero h1 {
+        font-family: "Cinzel", serif; font-weight: 900;
+        font-size: clamp(40px, 5.4vw, 66px); line-height: 1.02;
+        letter-spacing: 0.02em; margin: 0 0 18px;
+      }
+      .hero h1 .thin { font-weight: 500; }
+      .hero .lede {
+        font-size: clamp(19px, 2vw, 22px); color: var(--ink-soft);
+        max-width: 36ch; margin: 0 0 28px;
+      }
+      .hero .lede strong { color: var(--ink); }
+      .date-pill {
+        align-self: flex-start;
+        font-family: "Special Elite", monospace; font-size: 13px;
+        letter-spacing: 0.16em; text-transform: uppercase;
+        background: var(--red); color: #fff;
+        padding: 8px 18px; border-radius: 999px;
+        box-shadow: 0 6px 18px var(--shadow);
+        margin-bottom: 30px;
+      }
+      .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+      .btn {
+        font-family: "Special Elite", monospace; font-size: 13.5px;
+        letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;
+        padding: 13px 22px; border: 2px solid var(--ink); color: var(--ink);
+        display: inline-block; background: transparent; cursor: pointer;
+      }
+      .btn.solid { background: var(--ink); color: var(--bg); }
+      .btn:hover { background: var(--red); border-color: var(--red); color: #fff; }
+      .hero-facts {
+        display: flex; gap: 28px; flex-wrap: wrap;
+        margin-top: 34px; padding-top: 22px; border-top: 1px solid var(--line);
+      }
+      .hero-facts div { min-width: 110px; }
+      .hero-facts dt {
+        font-family: "Special Elite", monospace; font-size: 11px;
+        letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin: 0;
+      }
+      .hero-facts dd { margin: 2px 0 0; font-weight: 600; font-size: 17px; }
+      @media (max-width: 860px) {
+        .hero { grid-template-columns: 1fr; }
+        .hero-photo { aspect-ratio: 4 / 5; order: 2; }
+      }
+      @media (min-width: 861px) { .hero-photo { min-height: 640px; } }
+
+      /* ---------- sections ---------- */
+      section { padding: clamp(56px, 8vw, 96px) 0; }
+      .sec-head { margin-bottom: 40px; max-width: 760px; }
+      .kicker {
+        font-family: "Special Elite", monospace; font-size: 12.5px;
+        letter-spacing: 0.22em; text-transform: uppercase; color: var(--red);
+        display: flex; align-items: center; gap: 14px; margin: 0 0 14px;
+      }
+      .kicker::after { content: ""; height: 1px; flex: 1; background: var(--line-strong); }
+      h2 {
+        font-family: "Cinzel", serif; font-weight: 700;
+        font-size: clamp(30px, 4vw, 44px); line-height: 1.12; margin: 0 0 14px;
+      }
+      .sec-head p { color: var(--ink-soft); margin: 0; font-size: 20px; }
+
+      /* sound */
+      .sound { background: var(--bg-deep); border-bottom: 2px solid var(--ink); }
+      .sound-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 64px); align-items: start; }
+      .sound blockquote {
+        margin: 0 0 24px; font-size: clamp(23px, 2.6vw, 29px);
+        line-height: 1.4; font-weight: 500;
+      }
+      .sound blockquote em { color: var(--red); font-style: italic; }
+      .sound p { color: var(--ink-soft); margin: 0 0 16px; }
+      figure { margin: 0; }
+      .framed { border: 2px solid var(--ink); box-shadow: 10px 10px 0 var(--shadow); }
+      figcaption, .sound figcaption {
+        font-family: "Special Elite", monospace; font-size: 12px;
+        letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+        padding-top: 12px;
+      }
+      .spec-list { list-style: none; margin: 26px 0 0; padding: 0; border-top: 1px solid var(--line); }
+      .spec-list li {
+        display: flex; justify-content: space-between; gap: 18px;
+        padding: 11px 2px; border-bottom: 1px solid var(--line); font-size: 17px;
+      }
+      .spec-list span:first-child {
+        font-family: "Special Elite", monospace; font-size: 12px;
+        letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted);
+        padding-top: 4px;
+      }
+      .spec-list span:last-child { font-weight: 600; text-align: right; }
+      @media (max-width: 860px) { .sound-grid { grid-template-columns: 1fr; } }
+
+      /* catalog */
+      .catalog { background: var(--bg-deep); border-block: 2px solid var(--ink); }
+      .poster-wall { columns: 3; column-gap: 26px; }
+      @media (max-width: 980px) { .poster-wall { columns: 2; } }
+      @media (max-width: 560px) { .poster-wall { columns: 1; } }
+      .poster {
+        break-inside: avoid; margin: 0 0 26px;
+        background: var(--panel); border: 2px solid var(--ink);
+        box-shadow: 8px 8px 0 var(--shadow);
+      }
+      .poster button.view {
+        display: block; width: 100%; padding: 0; margin: 0; border: 0;
+        background: #0a0908; cursor: zoom-in;
+      }
+      .poster button.view img { width: 100%; height: auto; }
+      .poster button.view:focus-visible { outline: 3px solid var(--gold-bright); outline-offset: -3px; }
+      .poster-info { padding: 16px 18px 18px; }
+      .poster-info .ptag {
+        font-family: "Special Elite", monospace; font-size: 11px;
+        letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold);
+        margin: 0 0 6px;
+      }
+      .poster-info h3 {
+        font-family: "Cinzel", serif; font-weight: 700; font-size: 21px;
+        margin: 0 0 4px; line-height: 1.2;
+      }
+      .poster-info p { margin: 0; color: var(--ink-soft); font-size: 16.5px; }
+      .poster-info .hint {
+        font-family: "Special Elite", monospace; font-size: 10.5px;
+        letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+        margin-top: 10px;
+      }
+
+      /* lightbox */
+      .lightbox {
+        position: fixed; inset: 0; z-index: 90; display: none;
+        background: rgba(5, 4, 3, 0.94);
+        align-items: center; justify-content: center; flex-direction: column;
+        padding: 22px;
+      }
+      .lightbox.open { display: flex; }
+      .lightbox img {
+        max-width: min(92vw, 560px); max-height: 76vh; width: auto; height: auto;
+        border: 2px solid var(--gold); box-shadow: 0 24px 60px rgba(0,0,0,0.7);
+      }
+      .lightbox .lb-cap {
+        color: var(--hero-ink); text-align: center; margin-top: 18px; max-width: 60ch;
+      }
+      .lightbox .lb-cap strong { font-family: "Cinzel", serif; display: block; font-size: 22px; margin-bottom: 4px; }
+      .lightbox .lb-cap span { color: #cbbd97; font-size: 16px; }
+      .lb-close {
+        position: absolute; top: 16px; right: 16px;
+        font-family: "Special Elite", monospace; font-size: 13px;
+        letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer;
+        background: var(--red); color: #fff; border: 0; padding: 10px 18px;
+      }
+      .lb-close:hover { background: var(--red-deep); }
+
+      /* latest drop */
+      .drop { background: var(--ink); color: var(--bg); border-bottom: 2px solid var(--ink); }
+      .drop .kicker { color: var(--gold-bright); }
+      .drop .kicker::after { background: var(--line-strong); }
+      .drop h2 { color: var(--bg); }
+      .drop-grid { display: grid; grid-template-columns: 330px 1fr; gap: clamp(30px, 5vw, 72px); align-items: center; }
+      .drop-visual {
+        border: 2px solid var(--gold); box-shadow: 12px 12px 0 rgba(0,0,0,0.45);
+        background: #000; line-height: 0;
+      }
+      .drop-visual img { width: 100%; height: auto; display: block; }
+      .soon-pill {
+        display: inline-block; font-family: "Special Elite", monospace; font-size: 12.5px;
+        letter-spacing: 0.16em; text-transform: uppercase;
+        background: var(--red); color: #fff; padding: 8px 16px; border-radius: 999px;
+        margin-bottom: 22px;
+      }
+      .drop-copy p { color: #cfc09c; max-width: 52ch; }
+      .drop-credits { list-style: none; margin: 26px 0 30px; padding: 0; border-top: 1px solid var(--line-strong); max-width: 480px; }
+      .drop-credits li {
+        display: flex; justify-content: space-between; gap: 18px;
+        padding: 11px 2px; border-bottom: 1px solid var(--line-strong); font-size: 17px;
+      }
+      .drop-credits span:first-child {
+        font-family: "Special Elite", monospace; font-size: 11.5px;
+        letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.65; padding-top: 4px;
+      }
+      .drop-credits span:last-child { font-weight: 600; }
+      .drop .btn { border-color: var(--bg); color: var(--bg); }
+      .drop .btn.solid { background: var(--red); border-color: var(--red); color: #fff; }
+      .drop .btn:hover { background: var(--bg); color: var(--ink); border-color: var(--bg); }
+      @media (max-width: 860px) {
+        .drop-grid { grid-template-columns: 1fr; }
+        .drop-visual { max-width: 330px; }
+      }
+
+      /* toronto ports poster + video */
+      .toronto-feature {
+        margin-top: clamp(46px, 6vw, 74px);
+        padding-top: clamp(30px, 4vw, 46px);
+        border-top: 1px solid var(--line-strong);
+      }
+      .toronto-head { max-width: 720px; margin-bottom: 28px; }
+      .toronto-head h3 {
+        font-family: "Cinzel", serif; font-weight: 700;
+        font-size: clamp(30px, 4vw, 44px); line-height: 1.12;
+        margin: 0 0 12px; color: var(--bg);
+      }
+      .toronto-head p { color: #cfc09c; margin: 0; max-width: 58ch; }
+      .toronto-grid {
+        display: grid; grid-template-columns: repeat(2, minmax(0, 430px));
+        gap: clamp(22px, 4vw, 44px); justify-content: center; align-items: start;
+      }
+      .toronto-poster {
+        margin: 0; background: #000; border-color: var(--gold);
+        box-shadow: 12px 12px 0 rgba(0,0,0,0.45);
+      }
+      .toronto-video video {
+        width: 100%; height: auto; aspect-ratio: 720 / 1068;
+        display: block; background: #000;
+        border: 2px solid var(--gold); box-shadow: 12px 12px 0 rgba(0,0,0,0.45);
+      }
+      @media (max-width: 760px) {
+        .toronto-grid { grid-template-columns: minmax(0, 430px); }
+      }
+
+      /* more visuals */
+      .visuals-title { font-family: "Cinzel", serif; font-weight: 700; font-size: 25px; color: var(--bg); margin: 54px 0 20px; }
+      .visuals-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+      .visual-info { padding-top: 14px; }
+      .visual-info .ptag {
+        font-family: "Special Elite", monospace; font-size: 11px;
+        letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-bright); margin: 0 0 5px;
+      }
+      .visual-info h3 { font-family: "Cinzel", serif; font-size: 19px; margin: 0 0 4px; color: var(--bg); }
+      .visual-info p { margin: 0; color: #cfc09c; font-size: 15.5px; }
+      @media (max-width: 900px) {
+        .visuals-grid { grid-template-columns: 1fr; }
+        .visual-card { max-width: 330px; }
+      }
+
+      /* latest tracks */
+      .track-list { display: grid; gap: 18px; }
+      .track-card {
+        display: grid; grid-template-columns: 120px 1fr; gap: 22px; align-items: center;
+        background: var(--panel); border: 2px solid var(--ink);
+        box-shadow: 8px 8px 0 var(--shadow); padding: 18px 20px;
+      }
+      .track-card img.art { width: 120px; height: 120px; object-fit: cover; border: 1px solid var(--line-strong); }
+      .track-meta .no {
+        font-family: "Special Elite", monospace; font-size: 11px;
+        letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin: 0 0 4px;
+      }
+      .track-meta h3 { font-family: "Cinzel", serif; font-size: 22px; margin: 0 0 2px; line-height: 1.2; }
+      .track-meta p { margin: 0 0 12px; color: var(--ink-soft); font-size: 16px; }
+      .track-card audio { width: 100%; height: 40px; }
+      @media (max-width: 640px) {
+        .track-card { grid-template-columns: 84px 1fr; gap: 16px; padding: 14px; }
+        .track-card img.art { width: 84px; height: 84px; }
+        .track-meta h3 { font-size: 18px; }
+      }
+      .track-card.cosmic {
+        background: linear-gradient(140deg, #04060f 0%, #0a1130 55%, #04060f 100%);
+        border-color: var(--gold);
+        color: #ede3cb;
+      }
+      .track-card.cosmic .track-meta p { color: #b9c2e8; }
+      .track-card.cosmic .no { color: var(--gold-bright); }
+      .track-card.cosmic img.art { border-color: var(--gold); }
+
+      /* quantum boom featured release */
+      .quantum {
+        display: grid; grid-template-columns: 1fr 300px; gap: clamp(26px, 4vw, 48px);
+        align-items: center;
+        background: linear-gradient(140deg, #04060f 0%, #0a1130 55%, #04060f 100%);
+        border: 2px solid var(--gold); color: #ede3cb;
+        padding: clamp(22px, 3.5vw, 40px); margin-bottom: 26px;
+        box-shadow: 10px 10px 0 var(--shadow);
+      }
+      .quantum .qart { width: 100%; height: auto; border: 1px solid var(--gold); display: block; }
+      .quantum .qtag {
+        font-family: "Special Elite", monospace; font-size: 11px;
+        letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-bright); margin: 0 0 8px;
+      }
+      .quantum h3 { font-family: "Cinzel", serif; font-size: clamp(26px, 3vw, 36px); margin: 0 0 6px; line-height: 1.1; }
+      .quantum .qfeat { margin: 0 0 6px; color: #b9c2e8; font-size: 18px; }
+      .quantum .qfeat strong { color: #ede3cb; }
+      .quantum .qmeta {
+        font-family: "Special Elite", monospace; font-size: 11.5px;
+        letter-spacing: 0.1em; text-transform: uppercase; color: #8f9bd6; margin: 0 0 18px;
+      }
+      .quantum audio { width: 100%; height: 40px; }
+      @media (max-width: 860px) {
+        .quantum { grid-template-columns: 1fr; }
+        .quantum .qside { max-width: 300px; }
+      }
+
+      /* full catalog strip */
+      .full-catalog {
+        margin-top: 30px; border: 2px solid var(--ink); background: var(--ink); color: var(--bg);
+        padding: clamp(22px, 3.5vw, 36px);
+        display: grid; grid-template-columns: 1fr auto; gap: 22px; align-items: center;
+      }
+      .full-catalog h3 { font-family: "Cinzel", serif; font-size: 24px; margin: 0 0 6px; color: var(--bg); }
+      .full-catalog p { margin: 0; color: #cfc09c; max-width: 56ch; }
+      .full-catalog .fc-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+      .full-catalog .btn { border-color: var(--bg); color: var(--bg); white-space: nowrap; }
+      .full-catalog .btn.solid { background: var(--red); border-color: var(--red); color: #fff; }
+      .full-catalog .btn:hover { background: var(--bg); color: var(--ink); border-color: var(--bg); }
+      @media (max-width: 860px) { .full-catalog { grid-template-columns: 1fr; } }
+
+      /* what they're saying */
+      .voices { background: var(--ink); color: var(--bg); border-block: 2px solid var(--ink); }
+      .voices .kicker { color: var(--gold-bright); }
+      .voices .kicker::after { background: var(--line-strong); }
+      .voices blockquote {
+        margin: 0 0 10px; font-family: "Cinzel", serif; font-weight: 700;
+        font-size: clamp(34px, 5vw, 58px); line-height: 1.15; color: var(--bg);
+      }
+      .voices blockquote .q { color: var(--red); }
+      .voices .attrib {
+        font-family: "Special Elite", monospace; font-size: 13px;
+        letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-bright);
+        margin: 0 0 34px;
+      }
+      .voices .vlead { color: #cfc09c; max-width: 62ch; margin: 0 0 34px; font-size: 20px; }
+      .vstats {
+        display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
+        border: 1px solid var(--line-strong); margin-bottom: 34px;
+      }
+      .vstats div { padding: 22px 24px; }
+      .vstats div + div { border-left: 1px solid var(--line-strong); }
+      .vstats .n { font-family: "Cinzel", serif; font-weight: 900; font-size: 40px; color: var(--gold-bright); line-height: 1; }
+      .vstats .l {
+        font-family: "Special Elite", monospace; font-size: 11px;
+        letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.7; margin-top: 6px;
+      }
+      @media (max-width: 700px) {
+        .vstats { grid-template-columns: 1fr; }
+        .vstats div + div { border-left: 0; border-top: 1px solid var(--line-strong); }
+      }
+      .voices .btn { border-color: var(--bg); color: var(--bg); }
+      .voices .btn.solid { background: var(--red); border-color: var(--red); color: #fff; }
+      .voices .btn:hover { background: var(--bg); color: var(--ink); border-color: var(--bg); }
+      .listen { background: var(--bg-deep); border-bottom: 2px solid var(--ink); }
+      .platform-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+      @media (max-width: 860px) { .platform-grid { grid-template-columns: repeat(2, 1fr); } }
+      @media (max-width: 480px) { .platform-grid { grid-template-columns: 1fr; } }
+      .platform {
+        display: flex; align-items: center; gap: 16px;
+        border: 2px solid var(--ink); background: var(--panel);
+        padding: 18px 20px; text-decoration: none; color: var(--ink);
+        box-shadow: 6px 6px 0 var(--shadow);
+        transition: transform 0.15s ease, background 0.15s ease, color 0.15s ease;
+      }
+      .platform:hover, .platform:focus-visible { background: var(--ink); color: var(--bg); transform: translate(-2px, -2px); }
+      .platform svg { flex: none; color: var(--red); }
+      .platform:hover svg, .platform:focus-visible svg { color: var(--gold-bright); }
+      .platform .pname { font-family: "Cinzel", serif; font-weight: 700; font-size: 19px; line-height: 1.15; }
+      .platform .psub {
+        font-family: "Special Elite", monospace; font-size: 11px;
+        letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.65; display: block; margin-top: 3px;
+      }
+      .listen-note { margin-top: 22px; color: var(--muted); font-size: 16.5px; font-style: italic; }
+
+      /* lora feature */
+      .lora-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(28px, 5vw, 64px); align-items: start; }
+      .lora-photo img { width: 100%; height: auto; }
+      .lora-tracks { list-style: none; margin: 22px 0 0; padding: 0; border-top: 1px solid var(--line); }
+      .lora-tracks li {
+        display: flex; justify-content: space-between; gap: 18px; align-items: baseline;
+        padding: 12px 2px; border-bottom: 1px solid var(--line);
+      }
+      .lora-tracks .t { font-weight: 600; }
+      .lora-tracks .d {
+        font-family: "Special Elite", monospace; font-size: 11.5px;
+        letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); text-align: right;
+      }
+      @media (max-width: 860px) { .lora-grid { grid-template-columns: 1fr; } }
+
+      .copy-block {
+        background: var(--panel-2); border: 1px solid var(--line);
+        padding: 18px 20px; margin-bottom: 16px;
+      }
+      .copy-block-head {
+        display: flex; align-items: center; justify-content: space-between; gap: 14px;
+        margin-bottom: 10px;
+      }
+      .copy-block-head h4 {
+        font-family: "Special Elite", monospace; font-size: 12px; font-weight: 400;
+        letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin: 0;
+      }
+      .copy-btn {
+        font-family: "Special Elite", monospace; font-size: 12px;
+        letter-spacing: 0.1em; text-transform: uppercase;
+        background: var(--ink); color: var(--bg); border: 0; cursor: pointer;
+        padding: 7px 14px; flex: none;
+      }
+      .copy-btn:hover { background: var(--red); color: #fff; }
+      .copy-btn.copied { background: var(--red); color: #fff; }
+      .copy-block pre {
+        margin: 0; white-space: pre-wrap; word-break: break-word;
+        font-family: "Newsreader", Georgia, serif; font-size: 16.5px; line-height: 1.55;
+        color: var(--ink-soft); max-height: 280px; overflow: auto;
+      }
+      .copy-block pre.tall { max-height: 340px; }
+      .vault-note { font-size: 16.5px; color: var(--muted); margin: 4px 0 0; font-style: italic; }
+
+      /* code */
+      .code-list { border-top: 2px solid var(--ink); }
+      .tenet {
+        display: grid; grid-template-columns: 90px 240px 1fr; gap: 24px;
+        padding: 30px 4px; border-bottom: 1px solid var(--line);
+        align-items: baseline;
+      }
+      .tenet .num {
+        font-family: "Cinzel", serif; font-weight: 900; font-size: 44px;
+        color: var(--red); line-height: 1;
+      }
+      .tenet h3 { font-family: "Cinzel", serif; font-size: 26px; margin: 0; font-weight: 700; }
+      .tenet p { margin: 0; color: var(--ink-soft); max-width: 52ch; }
+      @media (max-width: 760px) {
+        .tenet { grid-template-columns: 56px 1fr; }
+        .tenet .num { font-size: 32px; }
+        .tenet p { grid-column: 2; }
+      }
+
+      /* family */
+      .family { background: var(--bg-deep); border-block: 2px solid var(--ink); }
+      .family-grid { display: grid; grid-template-columns: 1fr 320px; gap: clamp(28px, 5vw, 56px); align-items: start; }
+      .org { display: grid; grid-template-columns: 1fr 1fr; border: 2px solid var(--ink); background: var(--panel); }
+      .org-cell { padding: 26px 24px; }
+      .org-cell:nth-child(even) { border-left: 1px solid var(--line); }
+      .org-cell:nth-child(n+3) { border-top: 1px solid var(--line); }
+      .org-cell .rank {
+        font-family: "Special Elite", monospace; font-size: 11.5px;
+        letter-spacing: 0.16em; text-transform: uppercase; color: var(--red); margin: 0 0 10px;
+      }
+      .org-cell h3 { font-family: "Cinzel", serif; font-size: 21px; margin: 0 0 10px; }
+      .org-cell p { margin: 0; color: var(--ink-soft); font-size: 17px; }
+      .producer-card { text-align: left; }
+      .producer-card img { width: 100%; height: auto; border: 2px solid var(--ink); box-shadow: 8px 8px 0 var(--shadow); }
+      @media (max-width: 900px) {
+        .family-grid { grid-template-columns: 1fr; }
+        .org { grid-template-columns: 1fr; }
+        .org-cell:nth-child(even) { border-left: 0; }
+        .org-cell:nth-child(n+2) { border-top: 1px solid var(--line); }
+        .producer-card { max-width: 360px; }
+      }
+
+      /* contact */
+      .contact { background: var(--ink); color: var(--bg); }
+      .contact .kicker { color: var(--gold-bright); }
+      .contact .kicker::after { background: var(--line-strong); }
+      .contact h2 { color: var(--bg); }
+      .contact-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(28px, 5vw, 64px); }
+      .contact p { color: #cfc09c; }
+      .next-steps { list-style: none; margin: 0; padding: 0; counter-reset: step; }
+      .next-steps li {
+        counter-increment: step; padding: 16px 0 16px 52px; position: relative;
+        border-bottom: 1px solid var(--line-strong);
+      }
+      .next-steps li::before {
+        content: counter(step, decimal-leading-zero);
+        position: absolute; left: 0; top: 18px;
+        font-family: "Special Elite", monospace; font-size: 13px; color: var(--gold-bright);
+      }
+      .next-steps strong { display: block; font-family: "Cinzel", serif; font-size: 19px; letter-spacing: 0.02em; }
+      .next-steps span { font-size: 16.5px; opacity: 0.85; }
+      .contact-card { border: 1px solid var(--line-strong); padding: 28px; }
+      .contact-card h3 { font-family: "Cinzel", serif; margin: 0 0 18px; font-size: 22px; }
+      .contact-row { margin-bottom: 20px; }
+      .contact-row .lbl {
+        font-family: "Special Elite", monospace; font-size: 11.5px;
+        letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.7; margin: 0 0 4px;
+      }
+      .contact-row a {
+        color: var(--bg); font-size: 21px; font-weight: 600; text-decoration: none;
+        border-bottom: 2px solid var(--red); word-break: break-all;
+      }
+      .contact-row a:hover { color: var(--gold-bright); }
+      .contact .btn { border-color: var(--bg); color: var(--bg); }
+      .contact .btn.solid { background: var(--red); border-color: var(--red); color: #fff; }
+      .contact .btn:hover { background: var(--bg); color: var(--ink); border-color: var(--bg); }
+      @media (max-width: 860px) { .contact-grid { grid-template-columns: 1fr; } }
+
+      footer {
+        padding: 26px 0 34px; border-top: 2px solid var(--ink);
+        font-size: 14.5px; color: var(--muted);
+      }
+      footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; align-items: center; }
+      footer .type { font-family: "Special Elite", monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; }
+      footer .badge { width: 64px; height: 64px; object-fit: cover; border-radius: 50%; border: 1px solid var(--line-strong); }
+    </style>
+  </head>
+  <body>
+    <nav class="nav">
+      <div class="wrap nav-inner">
+        <a class="mark" href="#top" aria-label="Crime Family Records — back to top">
+          <svg width="20" height="20" viewBox="0 0 40 40" aria-hidden="true"><path fill="#b02318" d="M20 0l3.2 10.4L31 3l-2.3 10.9L40 12l-8 7.4L40 27l-11.3-1.9L31 36l-7.8-7.4L20 39l-3.2-10.4L9 36l2.3-10.9L0 27l8-7.4L0 12l11.3 1.9L9 3l7.8 7.4z"/><circle cx="20" cy="20" r="4.4" fill="var(--bg)"/></svg>
+          CFR
+        </a>
+        <a class="link keep" href="#sound">The Sound</a>
+        <a class="link keep" href="#releases">Latest Releases</a>
+        <a class="link keep" href="#listen">Listen / Watch</a>
+        <a class="link" href="#tracks">Latest Drops</a>
+        <a class="link" href="#lora">Lora Finch</a>
+        <a class="link" href="#code">The Code</a>
+        <a class="link" href="#family">The Family</a>
+        <a class="cta" href="#contact">Contact</a>
+      </div>
+    </nav>
+
+    <header class="hero" id="top">
+      <div class="hero-photo">
+        <img id="hero-art" src="assets/image-01.jpg" alt="Systematic Dramatic poster: Lora Finch in a leather jacket holding a microphone on a rainy neon-lit street, Crime Family Records Presents" />
+        <span class="stamp" id="hero-stamp">Cover A — Systematic Dramatic feat. Lora Finch</span>
+        <div class="hero-swap" role="group" aria-label="Choose hero artwork">
+          <button type="button" id="swap-a" aria-pressed="true">Cover A · Systematic</button>
+          <button type="button" id="swap-b" aria-pressed="false">Cover B · The Empire</button>
+        </div>
+      </div>
+      <div class="hero-panel">
+        <svg class="burst" width="72" height="72" viewBox="0 0 40 40" aria-hidden="true"><path fill="#b02318" d="M20 0l3.2 10.4L31 3l-2.3 10.9L40 12l-8 7.4L40 27l-11.3-1.9L31 36l-7.8-7.4L20 39l-3.2-10.4L9 36l2.3-10.9L0 27l8-7.4L0 12l11.3 1.9L9 3l7.8 7.4z"/><circle cx="20" cy="20" r="4.4" fill="var(--bg)"/></svg>
+        <h1>Crime Family<br /><span class="thin">Records</span></h1>
+        <p class="lede">Dark cinematic hip-hop cut with orchestral strings. Real music, real stories, real family — <strong>family over everything.</strong></p>
+        <span class="date-pill">New music in production</span>
+        <div class="hero-actions">
+          <a class="btn solid" href="#drop">See the new cover art</a>
+          <a class="btn" href="#releases">Latest releases</a>
+        </div>
+        <dl class="hero-facts">
+          <div><dt>Featured Release</dt><dd>Systematic Dramatic</dd></div>
+          <div><dt>Signature</dt><dd>Lora Finch on violin</dd></div>
+          <div><dt>Producer</dt><dd>Mori Made</dd></div>
+        </dl>
+      </div>
+    </header>
+
+    <main>
+      <!-- LATEST DROP -->
+      <section class="drop" id="drop">
+        <div class="wrap">
+          <div class="drop-grid">
+            <div class="drop-visual">
+              <img src="assets/image-02.jpg" alt="Justice System teaser art: Mori Made in a hoodie and chain with gold crowns and the scales of justice — new track coming soon" />
+            </div>
+            <div class="drop-copy">
+              <p class="kicker" style="margin-bottom:14px">Latest Drop · Official Teaser</p>
+              <h2 style="margin-bottom:10px">Justice System</h2>
+              <span class="soon-pill">New Track Coming Soon</span>
+              <p>The next one up from the family vault. Mori Made steps out from behind the boards and into the frame — gold crowns, black marble, and the scales tipped his way. Peep the official cover art, then go run up the catalog while you wait.</p>
+              <ul class="drop-credits">
+                <li><span>Artist</span><span>@morimade</span></li>
+                <li><span>Produced by</span><span>Mori Made</span></li>
+                <li><span>Record label</span><span>Crime Family Records</span></li>
+                <li><span>Status</span><span>Coming soon</span></li>
+              </ul>
+              <div style="display:flex; gap:12px; flex-wrap:wrap">
+                <a class="btn solid" href="#listen">Where to listen</a>
+                <a class="btn" href="#releases">All the latest drops</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="toronto-feature" id="toronto-ports">
+            <div class="toronto-head">
+              <p class="kicker" style="margin-bottom:14px">Official Poster + Music Video</p>
+              <h3>Toronto Ports</h3>
+              <p>Crime Family Records presents <strong style="color:var(--bg)">Toronto Ports</strong> — feat. Glora Form, the new female lyricist. A Mori Made production: heavy cargo, fast boats, bigger dreams. The official poster and the official music video, together.</p>
+            </div>
+            <div class="toronto-grid">
+              <article class="toronto-media">
+                <figure class="poster toronto-poster">
+                  <button class="view" type="button" data-full="assets/image-03.png" data-title="Toronto Ports" data-sub="feat. Glora Form — New Female Lyricist · A Mori Made Production · Crime Family Records Presents">
+                    <img src="assets/image-03.png" alt="Toronto Ports official poster: Glora Form in a black hooded jacket and CFR chain at a Toronto port at sunset, cargo ship and skyline behind her" />
+                  </button>
+                </figure>
+                <div class="visual-info">
+                  <p class="ptag">Official Poster</p>
+                  <h3>Toronto Ports</h3>
+                  <p>feat. Glora Form — tap the poster to view it full-size.</p>
+                </div>
+              </article>
+              <article class="toronto-media toronto-video">
+                <video controls playsinline preload="metadata" poster="assets/image-05.jpg" aria-label="Play the Toronto Ports official music video featuring Glora Form">
+                  <source src="assets/video-toronto-ports-alt.mp4" type="video/mp4" />
+                  Your browser can't play this video. <a href="assets/video-toronto-ports-alt.mp4">Open the Toronto Ports music video</a>.
+                </video>
+                <div class="visual-info">
+                  <p class="ptag">Official Music Video</p>
+                  <h3>Toronto Ports</h3>
+                  <p>Press play — the video that goes with the poster.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <h3 class="visuals-title">More from the vault</h3>
+          <div class="visuals-grid">
+            <article class="visual-card">
+              <div class="drop-visual">
+                <img src="assets/image-06.jpg" alt="Promo visual: an artist in a gold crown and heavy gold chains" />
+              </div>
+              <div class="visual-info">
+                <p class="ptag">Promo Visual</p>
+                <h3>Crown &amp; Chains</h3>
+                <p>Gold crown, heavy ink, heavier chains — dark luxury, up close.</p>
+              </div>
+            </article>
+            <article class="visual-card">
+              <div class="drop-visual">
+                <img src="assets/image-07.jpg" alt="Promo visual: an artist with yellow braids in front of a graffiti wall" />
+              </div>
+              <div class="visual-info">
+                <p class="ptag">Promo Visual</p>
+                <h3>Graffiti Wall Sessions</h3>
+                <p>Yellow braids against the graffiti wall — street-level and unapologetic.</p>
+              </div>
+            </article>
+            <article class="visual-card">
+              <div class="drop-visual">
+                <img src="assets/image-08.jpg" alt="Promo visual: an artist with black and pink hair and gold chains by a black luxury car" />
+              </div>
+              <div class="visual-info">
+                <p class="ptag">Featured Visual</p>
+                <h3>Black &amp; Pink</h3>
+                <p>High-fashion hip-hop — black-and-pink hair, heavy gold, and a black luxury car.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- THE SOUND -->
+      <section class="sound" id="sound">
+        <div class="wrap">
+          <div class="sec-head">
+            <p class="kicker">The Sound</p>
+            <h2>Built like a film score.<br />Hits like the street.</h2>
+          </div>
+          <div class="sound-grid">
+            <div>
+              <blockquote>“Haunting violin over deep 808s — the sound of a loyalty oath sworn <em>in the dark.</em>”</blockquote>
+              <p>Crime Family Records makes dark, cinematic hip-hop: orchestral strings and grand piano laid over hard-hitting drums and sub-heavy bass. Gritty rap verses carry the story; ethereal sung hooks carry the weight. Every record is scored like a scene from an epic crime film — loyalty, loss, and the price of both.</p>
+              <p>New music is in production, keeping the family ahead of next-generation sounds. From the struggle to the stage — we don't chase dreams, we build empires.</p>
+              <ul class="spec-list">
+                <li><span>Foundation</span><span>Orchestral strings &amp; grand piano</span></li>
+                <li><span>Low End</span><span>Deep 808s, hard drums</span></li>
+                <li><span>Voices</span><span>Gritty verses, ethereal hooks</span></li>
+                <li><span>Atmosphere</span><span>Epic mafia-movie cinema</span></li>
+              </ul>
+            </div>
+            <figure>
+              <img class="framed" src="assets/image-09.jpg" alt="A large studio mixing console and monitor speakers in a dim recording studio" />
+              <figcaption>Behind the board — where the family business gets mixed.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- THE CATALOG -->
+      <section class="catalog" id="releases">
+        <div class="wrap">
+          <div class="sec-head">
+            <p class="kicker">Latest Releases</p>
+            <h2>The latest drops.</h2>
+            <p>Fresh out of the family vault — find the music on RapFame, SoundCloud, TikTok, Instagram, YouTube, Facebook, and Snapchat. Tap any cover to view it full-size.</p>
+          </div>
+
+          <div class="poster-wall">
+            <figure class="poster">
+              <button class="view" type="button" data-full="assets/image-01.jpg" data-title="Systematic Dramatic" data-sub="feat. Lora Finch — Crime Family Records Presents · “The raw sound of the underground”">
+                <img src="assets/image-01.jpg" alt="Systematic Dramatic poster: Lora Finch in a leather jacket with a microphone on a rainy neon street" />
+              </button>
+              <div class="poster-info">
+                <p class="ptag">Single · Featured</p>
+                <h3>Systematic Dramatic</h3>
+                <p>feat. Lora Finch — “The raw sound of the underground.” Out now — find it via Listen / Watch below.</p>
+                <p class="hint">Tap poster to enlarge</p>
+              </div>
+            </figure>
+
+            <figure class="poster">
+              <button class="view" type="button" data-full="assets/image-12.png" data-title="Systematic Dramatic — Cinematic Cover" data-sub="Featuring Lora Finch — A Crime Family Records Production · Parental Advisory">
+                <img src="assets/image-12.png" alt="Systematic Dramatic cinematic poster: Lora Finch with the gold CFR crown logo, city skyline and chess king" />
+              </button>
+              <div class="poster-info">
+                <p class="ptag">Single · Alternate Cover</p>
+                <h3>Systematic Dramatic</h3>
+                <p>Featuring Lora Finch. “Some systems are built to keep you in chains.” Music · Power · Family.</p>
+                <p class="hint">Tap poster to enlarge</p>
+              </div>
+            </figure>
+
+            <figure class="poster">
+              <button class="view" type="button" data-full="assets/image-14.jpg" data-title="Blood-Brain Barrier" data-sub="feat. Lora Finch — A Crime Family Records Production · Track out now">
+                <img src="assets/image-14.jpg" alt="Blood-Brain Barrier poster: Lora Finch in a leather jacket on a rain-slicked city street at night" />
+              </button>
+              <div class="poster-info">
+                <p class="ptag">Single</p>
+                <h3>Blood-Brain Barrier</h3>
+                <p>feat. Lora Finch — a Crime Family Records production. Track out now, streams available.</p>
+                <p class="hint">Tap poster to enlarge</p>
+              </div>
+            </figure>
+
+            <figure class="poster">
+              <button class="view" type="button" data-full="assets/image-16.jpg" data-title="Crime Family Records — The Empire Poster" data-sub="Real Music. Real Stories. Real Family. — A Mori Made Production">
+                <img src="assets/image-16.jpg" alt="Crime Family Records hip-hop poster with the gold CF seal, performers with microphones, and the line We don't chase dreams, we build empires" />
+              </button>
+              <div class="poster-info">
+                <p class="ptag">Label Key Art</p>
+                <h3>Crime Family Records</h3>
+                <p>“Real music. Real stories. Real family.” From the struggle to the stage — a Mori Made production.</p>
+                <p class="hint">Tap poster to enlarge</p>
+              </div>
+            </figure>
+
+            <figure class="poster">
+              <button class="view" type="button" data-full="assets/image-18.jpg" data-title="Justice System" data-sub="@morimade — Produced by Mori Made · Crime Family Records">
+                <img src="assets/image-18.jpg" alt="Justice System cover: Mori Made in a hoodie and chain seated in a luxury vehicle, gold crowns and scales of justice" />
+              </button>
+              <div class="poster-info">
+                <p class="ptag">Single</p>
+                <h3>Justice System</h3>
+                <p>@morimade — produced by Mori Made. Dark luxury, gold crowns, Crime Family Records.</p>
+                <p class="hint">Tap poster to enlarge</p>
+              </div>
+            </figure>
+
+            <figure class="poster">
+              <button class="view" type="button" data-full="assets/image-20.jpg" data-title="Blueprints" data-sub="feat. Mori Made — A Crime Family Records Production">
+                <img src="assets/image-20.jpg" alt="Blueprints cover: gold architectural blueprint drawings on black with the title in gold" />
+              </button>
+              <div class="poster-info">
+                <p class="ptag">Single</p>
+                <h3>Blueprints</h3>
+                <p>feat. Mori Made — the empire, drawn up in gold. A Crime Family Records production.</p>
+                <p class="hint">Tap poster to enlarge</p>
+              </div>
+            </figure>
+
+            <figure class="poster">
+              <button class="view" type="button" data-full="assets/image-22.jpg" data-title="Chemical Imbalance" data-sub="feat. Betty Loop — Prod. by Mori Made · Crime Family Records">
+                <img src="assets/image-22.jpg" alt="Chemical Imbalance cover: Betty Loop with yellow braids in front of a graffiti wall" />
+              </button>
+              <div class="poster-info">
+                <p class="ptag">Single</p>
+                <h3>Chemical Imbalance</h3>
+                <p>feat. Betty Loop, prod. by Mori Made. No love, just chaos — Crime Family Records.</p>
+                <p class="hint">Tap poster to enlarge</p>
+              </div>
+            </figure>
+
+            <figure class="poster">
+              <button class="view" type="button" data-full="assets/image-24.jpg" data-title="Two Heaters" data-sub="Crime Family Records — key art from the alley sessions">
+                <img src="assets/image-24.jpg" alt="Two Heaters poster: an artist in a hoodie and chain under a street lamp in a moody brick alley" />
+              </button>
+              <div class="poster-info">
+                <p class="ptag">Key Art</p>
+                <h3>Two Heaters</h3>
+                <p>Moody alley sessions — one lamp, wet brick, and nowhere to run. Crime Family Records.</p>
+                <p class="hint">Tap poster to enlarge</p>
+              </div>
+            </figure>
+
+            <figure class="poster">
+              <button class="view" type="button" data-full="assets/image-26.jpg" data-title="To Closee to Freedom" data-sub="Crime Family Records · Mori Made Productions">
+                <img src="assets/image-26.jpg" alt="To Closee to Freedom poster: gold crown and crossed swords over chains, red roses above" />
+              </button>
+              <div class="poster-info">
+                <p class="ptag">Single</p>
+                <h3>To Closee to Freedom</h3>
+                <p>Gold crown, crossed swords, red roses. Crime Family Records · Mori Made Productions.</p>
+                <p class="hint">Tap poster to enlarge</p>
+              </div>
+            </figure>
+
+            <figure class="poster">
+              <button class="view" type="button" data-full="assets/image-28.jpg" data-title="Rose Marry" data-sub="Crime Family Records — Mori Made Productions">
+                <img src="assets/image-28.jpg" alt="Rose Marry cover art: Crime Family Records title in gold over a night street scene with roses and a padlock" />
+              </button>
+              <div class="poster-info">
+                <p class="ptag">Single</p>
+                <h3>Rose Marry</h3>
+                <p>Roses, locks, and loyalty after dark. Crime Family Records · Mori Made Productions.</p>
+                <p class="hint">Tap poster to enlarge</p>
+              </div>
+            </figure>
+
+            <figure class="poster">
+              <button class="view" type="button" data-full="assets/image-30.jpg" data-title="@morimade" data-sub="The producer — Mori Made · RapFame artist card">
+                <img src="assets/image-30.jpg" alt="@morimade RapFame profile card: Mori Made in a hoodie and chain surrounded by gold crowns" />
+              </button>
+              <div class="poster-info">
+                <p class="ptag">Artist Card</p>
+                <h3>@morimade</h3>
+                <p>The producer behind the boards — Mori Made, broadcasting on RapFame.</p>
+                <p class="hint">Tap poster to enlarge</p>
+              </div>
+            </figure>
+
+            <figure class="poster">
+              <button class="view" type="button" data-full="assets/image-32.jpg" data-title="Crime Family Creations" data-sub="The badge — mic, vinyl, and the city skyline">
+                <img src="assets/image-32.jpg" alt="Crime Family Creations badge: vintage microphone and vinyl records under a city skyline and full moon" />
+              </button>
+              <div class="poster-info">
+                <p class="ptag">Label Mark</p>
+                <h3>Crime Family Creations</h3>
+                <p>The badge: mic, vinyl, skyline. The creative arm of the family.</p>
+                <p class="hint">Tap poster to enlarge</p>
+              </div>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- LISTEN / WATCH -->
+      <section class="listen" id="listen">
+        <div class="wrap">
+          <div class="sec-head">
+            <p class="kicker">Listen / Watch</p>
+            <h2>Find the family everywhere.</h2>
+            <p>Follow Crime Family Records and Mori Made on your platform of choice — RapFame, SoundCloud, TikTok, Instagram, YouTube, Facebook, and Snapchat are live now.</p>
+          </div>
+          <div class="platform-grid">
+            <a class="platform" href="https://rapfame.app/user/morimade" aria-label="Mori Made on RapFame">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="9" y="2.5" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 6 6.9V20H8.5a1 1 0 1 0 0 2h7a1 1 0 1 0 0-2H13v-2.1A7 7 0 0 0 19 11h-2.2a5 5 0 0 1-9.6 0H5z"/></svg>
+              <span><span class="pname">RapFame</span><span class="psub">@morimade · 911 plays</span></span>
+            </a>
+            <a class="platform" href="https://on.soundcloud.com/oWPGhHy6Q9HoLuhREI" aria-label="Mori Made on SoundCloud">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M2.6 16.6c.5 0 .9-.4.9-.9v-3c0-.5-.4-.9-.9-.9s-.9.4-.9.9v3c0 .5.4.9.9.9zm2.6.4c.5 0 .9-.4.9-.9v-4.4c0-.5-.4-.9-.9-.9s-.9.4-.9.9v4.4c0 .5.4.9.9.9zm2.5.1c.5 0 .9-.4.9-.9V10c0-.5-.4-.9-.9-.9s-.9.4-.9.9v6.2c0 .5.4.9.9.9zM10 17.3h8.2c2 0 3.7-1.6 3.7-3.6 0-1.8-1.3-3.3-3.1-3.6C18.1 7.4 15.8 5.7 13.2 5.7c-1.2 0-2.3.3-3.2.9v10.7z"/></svg>
+              <span><span class="pname">SoundCloud</span><span class="psub">Mori Made · streaming</span></span>
+            </a>
+            <a class="platform" href="https://www.tiktok.com/@paul.mori2" aria-label="Crime Family Records on TikTok — @paul.mori2">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 3c.4 2.1 1.9 3.7 4.1 4v3.1c-1.6 0-3-.5-4.1-1.3v6.4c0 3.4-2.5 5.9-5.7 5.9-3.1 0-5.5-2.4-5.5-5.5 0-3.2 2.6-5.7 6-5.5v3.2c-1.6-.4-3 .7-3 2.2 0 1.3 1 2.3 2.4 2.3 1.4 0 2.4-1 2.4-2.6V3h3.4z"/></svg>
+              <span><span class="pname">TikTok</span><span class="psub">@paul.mori2 · Videos &amp; teasers</span></span>
+            </a>
+            <a class="platform" href="https://youtube.com/@paulmori-creator?si=Ro8C5_Kcwh51AJGX" aria-label="Mori Made on YouTube — @paulmori-creator">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.1 7.2c-.2-1.4-1-2.2-2.4-2.4C17.6 4.5 12 4.5 12 4.5s-5.6 0-7.7.3C2.9 5 2.1 5.8 1.9 7.2.6 12 .6 12 .6 12s0 4.8.3 4.8c.2 1.4 1 2.2 2.4 2.4 2.1.3 7.7.3 7.7.3s5.6 0 7.7-.3c1.4-.2 2.2-1 2.4-2.4.3-4.8.3-4.8.3-4.8s0-4.8-.3-4.8zM9.9 15.1V8.9l5.2 3.1-5.2 3.1z"/></svg>
+              <span><span class="pname">YouTube</span><span class="psub">@paulmori-creator · Official videos</span></span>
+            </a>
+            <a class="platform" href="https://www.instagram.com/mori7237/" aria-label="Mori Made on Instagram — @mori7237">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="0.6" fill="currentColor" stroke="none"/></svg>
+              <span><span class="pname">Instagram</span><span class="psub">@mori7237 · Reels &amp; covers</span></span>
+            </a>
+            <a class="platform" href="https://www.facebook.com/share/19Jf5bRbvT/" aria-label="Mori Made on Facebook">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14.2 21v-7h2.5l.4-3.5h-2.9V8.3c0-1 .3-1.7 1.8-1.7h1.4V3.5c-.3 0-1.1-.1-2-.1-2 0-3.4 1.2-3.4 3.5v3.6H8.5V14H11v7h3.2z"/></svg>
+              <span><span class="pname">Facebook</span><span class="psub">Mori Made · Page &amp; community</span></span>
+            </a>
+            <a class="platform" href="https://www.snapchat.com/add/mori-crearor?share_id=M2ZlSjp4oPc&locale=en-CA" aria-label="Mori Made on Snapchat — @mori-crearor">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5c-2.9 0-4.9 2.1-4.9 5.1 0 .7.1 1.4.3 2L4 12l.6.8 1.2-.3c.3.7.9 1.3 1.5 1.7-.1.5.2 1 .8 1.1.8.2 1.7.3 2.5.4.2.2.3.5.5.7.2.3.5.5.9.5s.7-.2.9-.5c.2-.2.3-.5.5-.7.8-.1 1.7-.2 2.5-.4.6-.1.9-.6.8-1.1.6-.4 1.2-1 1.5-1.7l1.2.3.6-.8-3.4-2.4c.2-.6.3-1.3.3-2 0-3-2-5.1-5-5.1zM9.6 12.2c-.7 0-1.2-.5-1.2-1.2s.5-1.2 1.2-1.2 1.2.5 1.2 1.2-.5 1.2-1.2 1.2zm4.8 0c-.7 0-1.2-.5-1.2-1.2s.5-1.2 1.2-1.2 1.2.5 1.2 1.2-.5 1.2-1.2 1.2z"/></svg>
+              <span><span class="pname">Snapchat</span><span class="psub">@mori-crearor · Add friend</span></span>
+            </a>
+          </div>
+          <p class="listen-note">RapFame, SoundCloud, TikTok, Instagram, YouTube, Facebook, and Snapchat are live now.</p>
+        </div>
+      </section>
+
+      <!-- LATEST TRACKS -->
+      <section class="tracks" id="tracks">
+        <div class="wrap">
+          <div class="sec-head">
+            <p class="kicker">Latest Drops</p>
+            <h2>Featured tracks.</h2>
+            <p>Six handpicked cuts on rotation from the Crime Family Records catalog. This is what's moving right now.</p>
+          </div>
+          <article class="quantum">
+            <div>
+              <img class="qart" src="assets/image-34.jpg" alt="Quantum Boom cover art: Mori Made in a gold and black outfit in a spaceship cockpit above Earth, feat Mori Made and Kitty Sick" />
+            </div>
+            <div class="qside">
+              <p class="qtag">New Release · Featured</p>
+              <h3>Quantum Boom</h3>
+              <p class="qfeat">feat. <strong>Mori Made</strong> &amp; <strong>Kitty Sick</strong></p>
+              <p class="qmeta">(Butterfly Effect) · Crime Family Records · 2:54</p>
+              <audio controls preload="metadata" src="assets/audio-quantum-boom.mp3" aria-label="Play Quantum Boom (Butterfly Effect) featuring Mori Made and Kitty Sick">Your browser can't play this track.</audio>
+            </div>
+          </article>
+          <div class="track-list">
+            <article class="track-card">
+              <img class="art" src="assets/image-35.png" alt="Crimson Nights and the Feddy Flow cover art: red-lit alleyway with the Crime Family Records stamp" />
+              <div class="track-meta">
+                <p class="no">Track 01 · Latest</p>
+                <h3>Crimson Nights</h3>
+                <p>Feddy Flow · Crime Family Records — a Mori Made production · 2:52</p>
+                <audio controls preload="metadata" src="assets/audio-crimson-nights.mp3" aria-label="Play Crimson Nights by Feddy Flow">Your browser can't play this track.</audio>
+              </div>
+            </article>
+            <article class="track-card">
+              <img class="art" src="assets/image-32.jpg" alt="Crime Family Creations badge in gold, black, and red" />
+              <div class="track-meta">
+                <p class="no">Track 02</p>
+                <h3>We're Too Close For That</h3>
+                <p>Remix / Remastered · Crime Family Records · 3:39</p>
+                <audio controls preload="metadata" src="assets/audio-too-close-remix.mp3" aria-label="Play We're Too Close For That, remix and remastered">Your browser can't play this track.</audio>
+              </div>
+            </article>
+            <article class="track-card">
+              <img class="art" src="assets/image-32.jpg" alt="Crime Family Creations badge in gold, black, and red" />
+              <div class="track-meta">
+                <p class="no">Track 03</p>
+                <h3>Toronto Ports</h3>
+                <p>Crime Family Records · 3:31</p>
+                <audio controls preload="metadata" src="assets/audio-toronto-ports.mp3" aria-label="Play Toronto Ports">Your browser can't play this track.</audio>
+              </div>
+            </article>
+            <article class="track-card">
+              <img class="art" src="assets/image-14.jpg" alt="Blood-Brain Barrier poster: Lora Finch in a leather jacket on a rain-slicked city street" />
+              <div class="track-meta">
+                <p class="no">Track 04</p>
+                <h3>Blood-Brain Barrier</h3>
+                <p>feat. Lora Finch · Crime Family Records · 3:01</p>
+                <audio controls preload="metadata" src="assets/audio-blood-brain-barrier.mp3" aria-label="Play Blood-Brain Barrier featuring Lora Finch">Your browser can't play this track.</audio>
+              </div>
+            </article>
+            <article class="track-card">
+              <img class="art" src="assets/image-32.jpg" alt="Crime Family Creations badge in gold, black, and red" />
+              <div class="track-meta">
+                <p class="no">Track 05</p>
+                <h3>Angel Underneath the Moon</h3>
+                <p>Cosmic Doom / Remastered · Crime Family Records · 4:28</p>
+                <audio controls preload="metadata" src="assets/audio-angel-moon.mp3" aria-label="Play Angel Underneath the Moon, Cosmic Doom remastered">Your browser can't play this track.</audio>
+              </div>
+            </article>
+          </div>
+          <div class="full-catalog">
+            <div>
+              <h3>The Full Catalog</h3>
+              <p>Six featured cuts are just the front window. The wider Crime Family Records catalog lives on the platforms above — start with RapFame and SoundCloud.</p>
+            </div>
+            <div class="fc-actions">
+              <a class="btn solid" href="#listen">Browse all platforms</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- WHAT THEY'RE SAYING -->
+      <section class="voices" id="voices">
+        <div class="wrap">
+          <p class="kicker">What They're Saying</p>
+          <blockquote><span class="q">“</span>On another level.<span class="q">”</span></blockquote>
+          <p class="attrib">— RapFame listeners, on Mori Made</p>
+          <p class="vlead">That's the verdict that keeps coming back on RapFame, track after track: the production, the pen, the presence — on another level. The numbers are moving with it.</p>
+          <div class="vstats">
+            <div><div class="n">911</div><div class="l">Plays on RapFame</div></div>
+            <div><div class="n">479</div><div class="l">Likes and counting</div></div>
+            <div><div class="n">102</div><div class="l">Fans in the family</div></div>
+          </div>
+          <div style="display:flex; gap:12px; flex-wrap:wrap">
+            <a class="btn solid" href="#tracks">Judge for yourself</a>
+            <a class="btn" href="https://rapfame.app/user/morimade">@morimade on RapFame</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- LORA FINCH -->
+      <section id="lora">
+        <div class="wrap">
+          <div class="sec-head">
+            <p class="kicker">Featured Artist</p>
+            <h2>Lora Finch — violinist &amp; lyricist.</h2>
+            <p>The voice and the strings at the front of the family's flagship records.</p>
+          </div>
+          <div class="lora-grid">
+            <figure class="lora-photo">
+              <img class="framed" src="assets/image-40.jpg" alt="Close-up of a violin body and strings against a dark background" />
+              <figcaption>The instrument behind the signature sound.</figcaption>
+            </figure>
+            <div>
+              <p style="color:var(--ink-soft); margin-top:0">Lora Finch is the family's signature: a classically sharp violinist and a pen that writes like a confession. Her haunting leads ride over the 808s on <strong style="color:var(--ink)">Systematic Dramatic</strong> and <strong style="color:var(--ink)">Blood-Brain Barrier</strong>, and her lyric writing gives the records their emotional spine — loyalty you can hear crying through the strings.</p>
+              <ul class="lora-tracks">
+                <li><span class="t">Systematic Dramatic</span><span class="d">feat. Lora Finch · Violin &amp; vocals</span></li>
+                <li><span class="t">Blood-Brain Barrier</span><span class="d">feat. Lora Finch · Violin &amp; vocals</span></li>
+                <li><span class="t">Strings of Loyalty</span><span class="d">In production · Violin &amp; lyrics</span></li>
+              </ul>
+
+              <h3 style="font-family:'Cinzel',serif; font-size:24px; margin:34px 0 14px;">In the vault: “Strings of Loyalty”</h3>
+              <p style="color:var(--ink-soft)">The next Lora Finch record is in production now. The Suno brief and full lyrics are below — copy-ready if you're pressing your own version.</p>
+
+              <div class="copy-block">
+                <div class="copy-block-head">
+                  <h4>Style description — paste into Suno</h4>
+                  <button class="copy-btn" type="button" data-copy="style-text">Copy</button>
+                </div>
+                <pre id="style-text">Dark cinematic hip-hop, Crime Family Records production, haunting violin lead by Lora Finch, orchestral strings, grand piano, deep 808s, hard-hitting drums, gritty male rap verses, ethereal female sung hook, 92 BPM, D minor, emotional, loyal, epic mafia-movie atmosphere</pre>
+              </div>
+
+              <div class="copy-block">
+                <div class="copy-block-head">
+                  <h4>Full lyrics</h4>
+                  <button class="copy-btn" type="button" data-copy="lyrics-text">Copy</button>
+                </div>
+                <pre class="tall" id="lyrics-text">[Intro: Violin Solo]
+(Ooh...)
+Strings in the dark, they call my name
+
+[Verse 1]
+I was raised on loyalty, not on fame
+Concrete dreams in the cold night rain
+Mama prayed while the violin played
+Every scar got a song, every debt got paid
+Family over everything, that's the code we keep
+Through the highs and the lows, through the nights with no sleep
+
+[Pre-Chorus: Female Vocal]
+And when the world goes cold, hear the strings cry
+Lora plays the pain, we hold our heads high
+
+[Chorus]
+These are strings of loyalty, tied to my soul
+Crime Family, we rise, we never fold
+Violin sings for the ones we lost on the road
+Blood makes you related, but loyalty makes you whole
+
+[Verse 2]
+From the basement to the stage, we built it from stone
+Every note from Lora cuts straight to the bone
+No betrayal in my circle, we protect our own
+Like a violin in the fire, we shine when alone
+Record spins, family wins, that's the story told
+Heart of a lion, with strings of gold
+
+[Chorus]
+These are strings of loyalty, tied to my soul
+Crime Family, we rise, we never fold
+Violin sings for the ones we lost on the road
+Blood makes you related, but loyalty makes you whole
+
+[Bridge: Violin Solo feat. Lora Finch]
+(Oh-oh-oh...)
+Let the violin talk now...
+Play it for the family...
+
+[Final Chorus]
+Strings of loyalty, they never break
+Crime Family Records, every move we make
+Lora Finch on the strings, let the heavens shake
+For the love of the family, whatever it takes
+
+[Outro: Violin + Piano]
+Strings fade out...
+Family forever...</pre>
+              </div>
+              <p class="vault-note">Strings of Loyalty — Crime Family Records feat. Lora Finch, in production. 92 BPM · D minor.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- THE CODE -->
+      <section id="code" style="padding-top:0">
+        <div class="wrap">
+          <div class="sec-head">
+            <p class="kicker">The Code</p>
+            <h2>Three tenets. No exceptions.</h2>
+            <p>Every record, every session, every deal runs on the same three dynamics — the ones that hold a family together.</p>
+          </div>
+          <div class="code-list">
+            <div class="tenet">
+              <span class="num">01</span>
+              <h3>Power</h3>
+              <p>Presence you can hear. Orchestral weight, commanding verses, records mixed to fill a room — power isn't volume, it's authority.</p>
+            </div>
+            <div class="tenet">
+              <span class="num">02</span>
+              <h3>Loyalty</h3>
+              <p>The bond before the business. We protect our own, credit every hand on a record, and never trade the family for a fast come-up.</p>
+            </div>
+            <div class="tenet">
+              <span class="num">03</span>
+              <h3>Conflict</h3>
+              <p>Tension makes the story. Strings against drums, light against dark — the struggle inside the music is what makes it honest.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- THE FAMILY -->
+      <section class="family" id="family">
+        <div class="wrap">
+          <div class="sec-head">
+            <p class="kicker">The Family</p>
+            <h2>Run tight. Run loyal.</h2>
+            <p>A clear hierarchy, defined roles, and functions that connect — so the music never waits on the machine.</p>
+          </div>
+          <div class="family-grid">
+            <div class="org">
+              <div class="org-cell">
+                <p class="rank">The Top</p>
+                <h3>Leadership</h3>
+                <p>One vision at the head of the table. Final say on every release, every signing, every sound that carries the name.</p>
+              </div>
+              <div class="org-cell">
+                <p class="rank">Behind the Boards</p>
+                <h3>Mori Made</h3>
+                <p>The producer. Mori Made builds the beats and the world around them — Justice System, Blueprints, Chemical Imbalance — and runs Mori Made Productions under the family banner.</p>
+              </div>
+              <div class="org-cell">
+                <p class="rank">On the Strings</p>
+                <h3>Lora Finch</h3>
+                <p>Violinist and lyricist. The signature sound of the flagship records — strings that cry over the drums and words that hold the oath.</p>
+              </div>
+              <div class="org-cell">
+                <p class="rank">The Machine</p>
+                <h3>Connected Functions</h3>
+                <p>Creation, production, and release move as one body: a hook written at dawn is pressed, mixed, and moving by nightfall.</p>
+              </div>
+            </div>
+            <figure class="producer-card">
+              <img src="assets/image-30.jpg" alt="@morimade RapFame profile card: Mori Made in a hoodie and chain surrounded by gold crowns" />
+              <figcaption>Mori Made — @morimade on RapFame.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section class="contact" id="contact">
+        <div class="wrap">
+          <div class="sec-head">
+            <p class="kicker">Next Steps</p>
+            <h2>Sit down with the family.</h2>
+          </div>
+          <div class="contact-grid">
+            <ol class="next-steps">
+              <li><strong>Keep digging</strong><span>The catalogue keeps growing — more records, more research into the sound.</span></li>
+              <li><strong>Pull up a chair</strong><span>Community first: listeners, collaborators, and string players welcome at the table.</span></li>
+              <li><strong>Spread the word</strong><span>Every share keeps the family name in lights. Tell somebody who loves a dark record.</span></li>
+            </ol>
+            <div class="contact-card">
+              <h3>Contact the Family</h3>
+              <div class="contact-row">
+                <p class="lbl">Email — bookings, collabs, press</p>
+                <a href="mailto:crimefamilyrecords.6@gmail.com">crimefamilyrecords.6@gmail.com</a>
+              </div>
+              <div class="contact-row">
+                <p class="lbl">Phone</p>
+                <a href="tel:+13657200740">365 720 0740</a>
+              </div>
+              <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:8px">
+                <a class="btn solid" href="mailto:crimefamilyrecords.6@gmail.com?subject=Crime%20Family%20Records%20—%20Getting%20in%20touch">Write to us</a>
+                <a class="btn" href="tel:+13657200740">Call the family</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap">
+        <span class="type">Crime Family Records — Family over everything</span>
+        <span>Poster art &amp; photography © the family and its artists. Respect the family · Represent the movement.</span>
+        <img class="badge" src="assets/image-32.jpg" alt="" aria-hidden="true" />
+      </div>
+    </footer>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Poster viewer" hidden>
+      <button class="lb-close" type="button" id="lb-close">Close ✕</button>
+      <img id="lb-img" alt="" />
+      <div class="lb-cap"><strong id="lb-title"></strong><span id="lb-sub"></span></div>
+    </div>
+
+    <script>
+      // Hero artwork swap (Cover A / Cover B).
+      (function () {
+        var img = document.getElementById("hero-art");
+        var stamp = document.getElementById("hero-stamp");
+        var btnA = document.getElementById("swap-a");
+        var btnB = document.getElementById("swap-b");
+        var covers = {
+          a: {
+            src: "assets/image-01.jpg",
+            alt: "Systematic Dramatic poster: Lora Finch in a leather jacket holding a microphone on a rainy neon-lit street, Crime Family Records Presents",
+            stamp: "Cover A — Systematic Dramatic feat. Lora Finch"
+          },
+          b: {
+            src: "assets/image-16.jpg",
+            alt: "Crime Family Records hip-hop poster with the gold CF seal and performers with microphones: Real Music. Real Stories. Real Family.",
+            stamp: "Cover B — The Empire Poster · A Mori Made Production"
+          }
+        };
+        // Preload the alternate cover so the swap is instant.
+        var pre = new Image();
+        pre.src = covers.b.src;
+        function show(key) {
+          var c = covers[key];
+          img.classList.add("fading");
+          setTimeout(function () {
+            img.src = c.src;
+            img.alt = c.alt;
+            stamp.textContent = c.stamp;
+            img.classList.remove("fading");
+          }, 180);
+          btnA.setAttribute("aria-pressed", key === "a" ? "true" : "false");
+          btnB.setAttribute("aria-pressed", key === "b" ? "true" : "false");
+        }
+        btnA.addEventListener("click", function () { show("a"); });
+        btnB.addEventListener("click", function () { show("b"); });
+      })();
+
+      // Poster lightbox.
+      (function () {
+        var box = document.getElementById("lightbox");
+        var lbImg = document.getElementById("lb-img");
+        var lbTitle = document.getElementById("lb-title");
+        var lbSub = document.getElementById("lb-sub");
+        var closeBtn = document.getElementById("lb-close");
+        var lastFocus = null;
+        function open(btn) {
+          lastFocus = btn;
+          lbImg.src = btn.getAttribute("data-full");
+          lbImg.alt = btn.getAttribute("data-title") + " — full poster artwork";
+          lbTitle.textContent = btn.getAttribute("data-title");
+          lbSub.textContent = btn.getAttribute("data-sub") || "";
+          box.hidden = false;
+          box.classList.add("open");
+          document.body.style.overflow = "hidden";
+          closeBtn.focus();
+        }
+        function close() {
+          box.classList.remove("open");
+          box.hidden = true;
+          document.body.style.overflow = "";
+          if (lastFocus) lastFocus.focus();
+        }
+        var buttons = document.querySelectorAll(".poster button.view");
+        Array.prototype.forEach.call(buttons, function (btn) {
+          btn.addEventListener("click", function () { open(btn); });
+        });
+        closeBtn.addEventListener("click", close);
+        box.addEventListener("click", function (e) { if (e.target === box) close(); });
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape" && box.classList.contains("open")) close();
+        });
+      })();
+
+      // Placeholder platform links: hold position until real URLs land.
+      (function () {
+        var links = document.querySelectorAll("a[data-platform]");
+        Array.prototype.forEach.call(links, function (a) {
+          a.addEventListener("click", function (e) { e.preventDefault(); });
+        });
+      })();
+
+      // Copy-to-clipboard for the Suno-ready blocks.
+      (function () {
+        function fallbackCopy(text) {
+          var ta = document.createElement("textarea");
+          ta.value = text;
+          ta.setAttribute("readonly", "");
+          ta.style.position = "absolute";
+          ta.style.left = "-9999px";
+          document.body.appendChild(ta);
+          ta.select();
+          try { document.execCommand("copy"); } catch (e) { /* clipboard unavailable */ }
+          document.body.removeChild(ta);
+        }
+        var buttons = document.querySelectorAll(".copy-btn");
+        Array.prototype.forEach.call(buttons, function (btn) {
+          btn.addEventListener("click", function () {
+            var target = document.getElementById(btn.getAttribute("data-copy"));
+            if (!target) return;
+            var text = target.textContent;
+            function done() {
+              var original = btn.textContent;
+              btn.textContent = "Copied ✓";
+              btn.classList.add("copied");
+              setTimeout(function () {
+                btn.textContent = original;
+                btn.classList.remove("copied");
+              }, 1800);
+            }
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              navigator.clipboard.writeText(text).then(done, function () { fallbackCopy(text); done(); });
+            } else {
+              fallbackCopy(text);
+              done();
+            }
+          });
+        });
+      })();
+    </script>
+    <div
+      style="height: auto; display: flex; flex-direction: column; align-items: flex-end; justify-content: center; border-radius: 30px; width: min(360px, calc(100vw - 2rem)); position: fixed; z-index: 80; right: max(1rem, env(safe-area-inset-right)); bottom: max(4rem, calc(1rem + env(safe-area-inset-bottom))); pointer-events: none;">
+      <div id="ig-chat-container" hidden style="display:none;justify-content:center;align-items:center;flex-direction:column;width: 100%;background-color:#ffffff;border-radius:0.375rem;font-family:sans-serif;
+          padding-bottom: 1rem; opacity: 1; transform: translateY(0%); visibility: visible; border: 1px solid #E3E5F5; pointer-events: auto;
+          transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+          visibility: hidden;" onclick="const el = document.getElementById('ig-chat-container');
+                        if (el) {
+                          el.hidden = true;
+                          el.style.display = 'none';
+                          el.style.visibility = 'hidden';
+                          el.style.transform = 'translateY(100%)';
+                          el.style.opacity = '0';
+                        }
+                        const button = document.getElementById('ig-chat-button');
+                        if (button) {
+                          button.hidden = false;
+                          button.setAttribute('aria-expanded', 'false');
+                          button.style.visibility = 'visible';
+                          button.style.transform = 'translateY(0%)';
+                          button.style.opacity = '1';
+                        }">
+        <div style="display: flex; justify-content: flex-start; align-items: center; flex-direction: row; width: -webkit-fill-available; height: auto; padding: 1rem; gap: 1.25rem;
+          position: relative;">
+          <div
+            style="display: flex; justify-content: center; align-items: center; width: 3rem; height: 3rem; background-color: #f8fafc; border-radius: 9999px; position: relative; padding: 0.125rem;">
+            <img src="assets/image-45.png"
+              alt="mori7237 agent avatar"
+              style="width: 2.75rem; height: 2.75rem; object-fit: cover; background-color: #f8fafc; border-radius: 9999px;">
+            <div style="width: 1rem; height: 1rem; display: flex; align-items: center; justify-content: center; background-color: #ffffff; border-radius: 9999px;
+              position: absolute; bottom: 0px; right: -0.125rem;">
+              <div
+                style="width: 0.75rem; height: 0.75rem; background-color: #22c55e; border-radius: 9999px;">
+              </div>
+            </div>
+          </div>
+          <div
+            style="display: flex; justify-content: center; align-items: flex-start; flex-direction: column; flex-grow: 1;">
+            <p style="font-weight: 700; color: #334155; margin: 0.25rem;">mori7237</p>
+            <p style="font-weight: 500; color: #334155; margin: 0.25rem;">Online</p>
+          </div>
+          <button type="button" aria-label="Close chat"
+            style="position: absolute; top: 0px; right: 0px; display: inline-flex; flex-shrink: 0; justify-content: center; align-items: center;
+            font-weight: 500; transition-duration: 300ms; outline-width: 2px; outline-color: transparent; outline-offset: 0px; height: 2rem; padding-left: 0.5rem;
+            padding-right: 0.5rem; border-width: 0px; cursor: pointer; background-color: transparent; color: #334155;">
+            <span
+              style="padding-left: 0.25rem; padding-right: 0.25rem; font-size: 0.875rem; line-height: 1.25rem;">
+              x</span>
+          </button>
+        </div>
+        <div style="width: 100%; height: 1px; padding-bottom: 0.5rem; border-top: 1px solid #E3E5F5">
+        </div>
+        <div
+          style="display: flex; justify-content: flex-start; align-items: flex-start; flex-direction: row; width: -webkit-fill-available; height: auto; padding: 1rem;gap: 1.25rem;">
+          <img src="assets/image-45.png" alt="mori7237 agent avatar"
+            style="width: 2.5rem; height: 2.5rem; object-fit: cover; background-color: #f8fafc; border-radius: 9999px;">
+          <div style="display: flex; justify-content: flex-start; align-items: flex-start; flex-direction: column; flex-grow: 1; border-radius: 0.375rem; background-color: #fafafa;
+              padding-left: 1rem;">
+            <p style="color: #334155; margin: 0.25rem;">Hi there! 🌟</p>
+            <p style="color: #334155; margin: 0.25rem;">How can I help you?</p>
+          </div>
+        </div>
+        <button type="button" style="border-radius: 9999px; display: inline-flex; flex-shrink: 0; justify-content: center; align-items: center; font-weight: 500; transition-duration: 300ms;
+          outline-width: 2px; outline-color: transparent; outline-offset: 0px; height: 3rem; padding: 0 0.75rem; border-width: 0px; cursor: pointer; color: #ffffff;
+          background-color: #3b82f6;"
+          onclick="window.location.href = 'https://agent.jotform.com/01a122dcb4e070008755d74af0b59c9fe537/instagram'">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+            viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M12 1c-2.987 0-3.362.019-4.535.067-1.17.054-1.968.237-2.668.51a5.403 5.403 0 0 0-1.95 1.27A5.384 5.384 0 0 0 1.58 4.794c-.272.7-.46 1.501-.513 2.672C1.014 8.64 1 9.014 1 12.002c0 2.987.014
+        3.362.067 4.535.054 1.171.24 1.97.513 2.669a5.383 5.383 0 0 0 1.266 1.948 5.417 5.417 0 0 0 1.951 1.27c.7.272 1.498.459 2.668.512C8.638 22.99 9.013 23 12 23s3.362-.017
+        4.535-.064c1.17-.053 1.972-.24 2.671-.512a5.393 5.393 0 0 0
+        1.948-1.27 5.384 5.384 0 0 0 1.267-1.948c.271-.7.458-1.498.512-2.669.053-1.173.067-1.547.067-4.535 0-2.988-.014-3.362-.067-4.536-.054-1.17-.24-1.972-.512-2.672a5.384 5.384
+        0 0 0-1.267-1.947 5.392 5.392 0 0 0-1.948-1.27c-.7-.273-1.5-.456-2.671-.51C15.362 1.014 14.987 1 12 1Zm0 1.981c2.937 0 3.284.018 4.444.064 1.072.048 1.657.23 2.045.38.513.2.878.438
+        1.263.823a3.4 3.4 0
+        0 1 .822 1.264c.15.387.332.973.38 2.045.054 1.16.065 1.507.065 4.445 0 2.937-.012 3.284-.064 4.444-.05 1.073-.23 1.654-.38 2.042-.2.514-.438.882-.823
+        1.267-.385.385-.75.623-1.263.822-.388.15-.973.329-2.045.378-1.16.053-1.507.064-4.444.064-2.937
+        0-3.284-.018-4.444-.064-1.072-.049-1.654-.227-2.041-.378a3.415 3.415 0 0 1-1.267-.822 3.416 3.416 0 0 1-.822-1.267c-.15-.387-.329-.97-.378-2.042-.052-1.16-.064-1.507-.064-4.444 0-2.938.013-3.285.064-4.445.05-1.072.227-1.658.378-2.045.2-.514.437-.879.822-1.264a3.415 3.415 0 0 1
+        1.267-.822c.387-.15.969-.332 2.041-.38C8.716 2.991 9.063 2.98 12 2.98Zm5.872 1.827a1.321 1.321 0 1 0 .002 2.642 1.321 1.321 0 0 0-.002-2.642ZM12 6.35A5.649 5.649 0 0 0 6.353 12 5.649 5.649
+        0 1 0 12 6.352Zm0 1.985a3.665 3.665 0 0 1 3.665 3.666 3.665 3.665 0 1 1-7.33 0A3.665 3.665 0 0 1 12 8.336Z" />
+          </svg>
+          <span style="padding: 0 0.75rem; font-size: 1.125rem; line-height: 1.75rem;">Message on
+            Instagram</span>
+        </button>
+      </div>
+      <button id="ig-chat-button" type="button" aria-label="Open Instagram chat" aria-expanded="false" aria-controls="ig-chat-container"
+        style="border-radius: 9999px; display: inline-flex; flex-shrink: 0; justify-content: center; align-items: center; font-weight: 500;
+        transition-duration: 300ms; outline-width: 2px; outline-color: transparent; outline-offset: 0px; height: 3rem; padding-left: 0.75rem; padding-right: 0.75rem; cursor: pointer;
+        background-color: #ffffff; color: #4b5563; transform: translateY(0%); border: 1px solid #E3E5F5; pointer-events: auto;" onclick="const el = document.getElementById('ig-chat-container');
+                    if (el) {
+                      el.hidden = false;
+                      el.style.display = 'flex';
+                      el.style.visibility = 'visible';
+                      el.style.transform = 'translateY(0%)';
+                      el.style.opacity = '1';
+                    }
+                    const button = document.getElementById('ig-chat-button');
+                    if (button) {
+                      button.hidden = true;
+                      button.setAttribute('aria-expanded', 'true');
+                    }">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+          viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M12 1c-2.987 0-3.362.019-4.535.067-1.17.054-1.968.237-2.668.51a5.403 5.403 0 0 0-1.95 1.27A5.384 5.384 0 0 0 1.58 4.794c-.272.7-.46 1.501-.513 2.672C1.014 8.64 1 9.014 1 12.002c0 2.987.014
+        3.362.067 4.535.054 1.171.24 1.97.513 2.669a5.383 5.383 0 0 0 1.266 1.948 5.417 5.417 0 0 0 1.951 1.27c.7.272 1.498.459 2.668.512C8.638 22.99 9.013 23 12 23s3.362-.017
+        4.535-.064c1.17-.053 1.972-.24 2.671-.512a5.393 5.393 0 0 0
+        1.948-1.27 5.384 5.384 0 0 0 1.267-1.948c.271-.7.458-1.498.512-2.669.053-1.173.067-1.547.067-4.535 0-2.988-.014-3.362-.067-4.536-.054-1.17-.24-1.972-.512-2.672a5.384 5.384
+        0 0 0-1.267-1.947 5.392 5.392 0 0 0-1.948-1.27c-.7-.273-1.5-.456-2.671-.51C15.362 1.014 14.987 1 12 1Zm0 1.981c2.937 0 3.284.018 4.444.064 1.072.048 1.657.23 2.045.38.513.2.878.438
+        1.263.823a3.4 3.4 0
+        0 1 .822 1.264c.15.387.332.973.38 2.045.054 1.16.065 1.507.065 4.445 0 2.937-.012 3.284-.064 4.444-.05 1.073-.23 1.654-.38 2.042-.2.514-.438.882-.823
+        1.267-.385.385-.75.623-1.263.822-.388.15-.973.329-2.045.378-1.16.053-1.507.064-4.444.064-2.937
+        0-3.284-.018-4.444-.064-1.072-.049-1.654-.227-2.041-.378a3.415 3.415 0 0 1-1.267-.822 3.416 3.416 0 0 1-.822-1.267c-.15-.387-.329-.97-.378-2.042-.052-1.16-.064-1.507-.064-4.444 0-2.938.013-3.285.064-4.445.05-1.072.227-1.658.378-2.045.2-.514.437-.879.822-1.264a3.415 3.415 0 0 1
+        1.267-.822c.387-.15.969-.332 2.041-.38C8.716 2.991 9.063 2.98 12 2.98Zm5.872 1.827a1.321 1.321 0 1 0 .002 2.642 1.321 1.321 0 0 0-.002-2.642ZM12 6.35A5.649 5.649 0 0 0 6.353 12 5.649 5.649
+        0 1 0 12 6.352Zm0 1.985a3.665 3.665 0 0 1 3.665 3.666 3.665 3.665 0 1 1-7.33 0A3.665 3.665 0 0 1 12 8.336Z" />
+        </svg>
+      </button>
+    </div>
+  </body>
+</html>
